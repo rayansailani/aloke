@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+      * {
+        font-family: "Montserrat", sans-serif;
+      }
+      body {
+        background-color: #69ddff;
+      }
+      .container {
+        height: 700px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      h1 {
+        font-size: 4rem;
+        margin-bottom: 100px;
+      }
+      #answer {
+        background: black;
+        color: white;
+        padding: 20px;
+        width: 80px;
+        height: 80px;
+        text-align: center;
+        border-radius: 50%;
+        margin-bottom: 60px;
+        /* box-shadow: 10px 10px 9px 0px #69ddff; */
+      }
+      button,
+      a {
+        background-color: black;
+        border-radius: 0;
+        color: white;
+        border: none;
+        padding: 20px;
+        font-size: 1.2em;
+        margin-right: 40px;
+      }
+      button:hover {
+        opacity: 0.7;
+      }
+      button:focus {
+        border: none;
+      }
+      a:hover {
+        text-decoration: none;
+        color: white;
+        opacity: 0.7;
+      }
+      .button-group {
+        display: flex;
+        flex-direction: row;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Question Number Generator!</h1>
+      <h2 id="answer">??</h2>
+      <div class="button-group">
+        <button class="btn-lg" id="button-generate" onclick="randomNumber(1,5)">
+          Generate!
+        </button>
+        <a href="1.html" id="qLink" class="btn-lg">Start!</a>
+      </div>
+    </div>
+
+    <script>
+      // Function to generate random number
+      var answer = document.getElementById("answer");
+      var question = document.getElementById("qLink");
+      function randomNumber(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        var final = Math.floor(Math.random() * (max - min + 1)) + min;
+        answer.innerHTML = final;
+        question.href = "/"+ final.toString()+'.html';
+        console.log(question.href);
+      }
+      //   var button = document.getElementById("button-generate");
+      //   if (button.cliked) {
+      //     var answer = randomNumber(1, 5);
+      //     var elemt = document.getElementsByClassName("answer");
+      //     console.log(answer);
+      //     elemt.innerHTML = answer;
+      //   }
+      // document.write("Random Number between 1 and 10: ")
+
+      // Function call
+      // document.write( randomNumber(1, 10) );
+    </script>
+  </body>
+</html>
